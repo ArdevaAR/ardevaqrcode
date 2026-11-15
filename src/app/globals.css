@@ -1,6 +1,13 @@
-/* =========================
-   RESET
-========================= */
+:root {
+  --color1: #4e95ff;
+  --color3: gold;
+  --color4: white;
+  --color5: black;
+
+  --still1: white;
+  --still2: black;
+  --still3: #1b1b1c;
+}
 
 * {
   margin: 0;
@@ -10,8 +17,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #0f172a;
-  color: #fff;
+  background: var(--color4);
+  color: var(--color5);
 }
 
 /* =========================
@@ -57,14 +64,42 @@ body {
 .editor {
   width: 100%;
   padding: 20px;
-  background: #1e293b;
-  border: 1px solid #334155;
+  background: var(--color1);
   border-radius: 14px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .editor h2 {
   font-size: 20px;
   margin-bottom: 22px;
+  color: var(--color4);
+  background: var(--still1);
+  width: auto;
+  text-align: center;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 0.4rem;
+  color: var(--color1);
+}
+
+.editor h2 span {
+  color: var(--still2);
+}
+
+.desEditor {
+  background: #e5e5e5;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.desEditor .desEditor1 {
+  width: 50%;
 }
 
 .form-group {
@@ -75,7 +110,7 @@ body {
   display: block;
   margin-bottom: 10px;
   font-size: 14px;
-  font-weight: bold;
+  color: var(--still2);
 }
 
 .form-group input[type="text"],
@@ -83,9 +118,9 @@ body {
   display: block;
   width: 100%;
   padding: 12px;
-  background: #0f172a;
-  color: white;
-  border: 1px solid #475569;
+  background: var(--still1);
+  color: var(--still2);
+  border: 0.1rem solid var(--color1);
   border-radius: 8px;
   outline: none;
   font-size: 13px;
@@ -97,7 +132,7 @@ body {
 
 .form-group input[type="range"] {
   width: 100%;
-  accent-color: #4e95ff;
+  accent-color: var(--color5);
   cursor: pointer;
 }
 
@@ -152,9 +187,7 @@ body {
 
 .canvas-wrapper {
   width: 100%;
-  padding: 10px;
-  background: #1e293b;
-  border: 1px solid #334155;
+
   border-radius: 12px;
 }
 
@@ -171,6 +204,7 @@ body {
 
   /* Mencegah gesture browser saat drag */
   touch-action: none;
+  border: 0.1rem solid var(--color1);
 }
 
 /* Footer */
