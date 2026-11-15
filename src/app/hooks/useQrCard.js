@@ -374,7 +374,6 @@ export function useQrCard() {
     qrSize,
     setQrSize,
 
-    status,
     ready,
 
     handlePointerDown,

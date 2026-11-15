@@ -9,10 +9,10 @@ export default function Home() {
 
   return (
     <main className="container">
-      <header className="header">
+      {/* <header className="header">
         <h1>Nexertc QR</h1>
         <p>QR Card Generator & Editor</p>
-      </header>
+      </header> */}
 
       <div className="workspace">
         <EditorPanel
@@ -30,7 +30,6 @@ export default function Home() {
 
         <QRPreview
           canvasRef={qr.canvasRef}
-          status={qr.status}
           orientation={qr.orientation}
           ready={qr.ready}
           onPointerDown={qr.handlePointerDown}

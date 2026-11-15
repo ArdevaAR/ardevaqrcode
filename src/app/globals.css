@@ -101,13 +101,6 @@ body {
   cursor: pointer;
 }
 
-/* Orientation */
-
-.orientation {
-  display: flex;
-  gap: 10px;
-}
-
 .orientation button {
   flex: 1;
   padding: 12px;
@@ -180,14 +173,6 @@ body {
   touch-action: none;
 }
 
-/* Status */
-
-.status {
-  margin-top: 14px;
-  color: #94a3b8;
-  font-size: 13px;
-}
-
 /* Footer */
 
 footer {
@@ -221,7 +206,7 @@ footer {
 
   .canvas-wrapper {
     padding: 14px;
-    width: 55%;
+    width: 100%;
   }
 }
 
