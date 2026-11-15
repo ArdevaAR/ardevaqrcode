@@ -1,3 +1,6 @@
+import Image from "next/image";
+import fedora from "../img/fedorai2.png";
+
 export default function EditorPanel({
   text,
   setText,
@@ -86,6 +89,9 @@ export default function EditorPanel({
           </div>
         </div>
       </div>
+
+      <div className="boxBottom"></div>
+      <Image className="imgEditor1" src={fedora} alt="fedora" />
     </section>
   );
 }

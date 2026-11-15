@@ -63,13 +63,14 @@ body {
 
 .editor {
   width: 100%;
-  padding: 20px;
+  padding: 2rem;
   background: var(--color1);
   border-radius: 14px;
   display: flex;
   align-items: start;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .editor h2 {
@@ -96,6 +97,7 @@ body {
   align-items: start;
   justify-content: center;
   gap: 2rem;
+  border-radius: 0.4rem;
 }
 
 .desEditor .desEditor1 {
@@ -127,28 +129,32 @@ body {
 }
 
 .form-group input:focus {
-  border-color: #4e95ff;
+  border-color: var(--color1);
 }
 
 .form-group input[type="range"] {
   width: 100%;
-  accent-color: var(--color5);
+  accent-color: var(--color1);
   cursor: pointer;
+}
+
+.orientation {
+  display: flex;
+  gap: 1rem;
 }
 
 .orientation button {
   flex: 1;
   padding: 12px;
-  color: white;
+  color: var(--still1);
   background: #334155;
-  border: 1px solid #475569;
-  border-radius: 8px;
+  border-radius: 0.4rem;
   cursor: pointer;
+  border: none;
 }
 
 .orientation button.active {
-  background: #2563eb;
-  border-color: #4e95ff;
+  background: var(--color1);
 }
 
 /* Helper */
@@ -183,8 +189,26 @@ body {
   cursor: not-allowed;
 }
 
-/* Canvas */
+.boxBottom {
+  background: var(--still1);
+  height: 3rem;
+  width: 70%;
+  border-radius: 0.7rem 0 0 0.7rem;
+  margin-top: 2rem;
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}
 
+.editor .imgEditor1 {
+  width: 6%;
+  height: auto;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+/* Canvas */
 .canvas-wrapper {
   width: 100%;
 
@@ -235,7 +259,8 @@ footer {
   }
 
   .editor {
-    padding: 25px;
+    padding: 2rem;
+    padding-bottom: 7rem;
   }
 
   .canvas-wrapper {
@@ -259,10 +284,6 @@ footer {
 
   .workspace {
     flex-direction: row;
-  }
-
-  .editor {
-    top: 25px;
   }
 
   .canvas-wrapper {
