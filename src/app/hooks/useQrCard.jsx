@@ -8,6 +8,7 @@ export function useQrCard() {
 
   const dragging = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
+  const verticalGuideRef = useRef(false);
 
   const positionRef = useRef({
     x: 160,
@@ -49,20 +50,19 @@ export function useQrCard() {
 
     const { base, qrLayer, width, height } = assets;
 
+    // Atur ukuran canvas sebelum mengambil context
+    canvas.width = qrOnly ? qrSize : width;
+    canvas.height = qrOnly ? qrSize : height;
+
     const ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (qrOnly) {
       // Mode QR Only
-      canvas.width = qrSize;
-      canvas.height = qrSize;
-
-      ctx.clearRect(0, 0, qrSize, qrSize);
       ctx.drawImage(qrLayer, 0, 0, qrSize, qrSize);
     } else {
       // Mode Card
-      canvas.width = width;
-      canvas.height = height;
-
       const pos = limitPosition(
         positionRef.current.x,
         positionRef.current.y,
@@ -73,6 +73,22 @@ export function useQrCard() {
 
       // Background
       ctx.drawImage(base, 0, 0);
+
+      // Garis panduan vertikal ketika QR tepat di tengah
+      if (verticalGuideRef.current && dragging.current) {
+        ctx.save();
+
+        ctx.beginPath();
+        ctx.setLineDash([8, 6]);
+        ctx.strokeStyle = "#4e95ff";
+        ctx.lineWidth = 2;
+
+        ctx.moveTo(width / 2, 0);
+        ctx.lineTo(width / 2, height);
+
+        ctx.stroke();
+        ctx.restore();
+      }
 
       // Border putih QR
       const padding = 2;
@@ -311,15 +327,30 @@ export function useQrCard() {
 
   // Gerakkan QR tanpa setState
   function handlePointerMove(e) {
-    if (!dragging.current) return;
+    if (!dragging.current || qrOnly) return;
 
     const point = getCanvasPosition(e);
 
-    positionRef.current = limitPosition(
-      point.x - dragOffset.current.x,
-      point.y - dragOffset.current.y,
-      qrSize,
-    );
+    // Posisi QR
+    const rawX = point.x - dragOffset.current.x;
+    const rawY = point.y - dragOffset.current.y;
+
+    // Titik tengah horizontal
+    const centerX = (dimensions.width - qrSize) / 2;
+
+    // Jarak toleransi untuk snap
+    const threshold = 8;
+
+    // Deteksi apakah QR mendekati tengah
+    const isCentered = Math.abs(rawX - centerX) <= threshold;
+
+    // Aktifkan garis vertikal
+    verticalGuideRef.current = isCentered;
+
+    // Snap otomatis ke tengah
+    const finalX = isCentered ? centerX : rawX;
+
+    positionRef.current = limitPosition(finalX, rawY, qrSize);
 
     renderRef.current?.();
   }
@@ -328,9 +359,13 @@ export function useQrCard() {
   function handlePointerUp(e) {
     dragging.current = false;
 
+    verticalGuideRef.current = false;
+
     if (e.currentTarget) {
       e.currentTarget.style.cursor = "grab";
     }
+
+    renderRef.current?.();
   }
 
   // Download
