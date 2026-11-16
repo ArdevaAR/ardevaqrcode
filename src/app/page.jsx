@@ -9,11 +9,6 @@ export default function Home() {
 
   return (
     <main className="container">
-      {/* <header className="header">
-        <h1>Nexertc QR</h1>
-        <p>QR Card Generator & Editor</p>
-      </header> */}
-
       <div className="workspace">
         <EditorPanel
           text={qr.text}
@@ -26,12 +21,14 @@ export default function Home() {
           setOrientation={qr.setOrientation}
           qrSize={qr.qrSize}
           setQrSize={qr.setQrSize}
+          qrOnly={qr.qrOnly}
+          setQrOnly={qr.setQrOnly}
         />
 
         <QRPreview
           canvasRef={qr.canvasRef}
           orientation={qr.orientation}
-          // ready={qr.ready}
+          qrOnly={qr.qrOnly}
           onPointerDown={qr.handlePointerDown}
           onPointerMove={qr.handlePointerMove}
           onPointerUp={qr.handlePointerUp}

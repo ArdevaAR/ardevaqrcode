@@ -12,6 +12,8 @@ export default function EditorPanel({
   setOrientation,
   qrSize,
   setQrSize,
+  qrOnly,
+  setQrOnly,
 }) {
   return (
     <section className="editor">
@@ -23,7 +25,6 @@ export default function EditorPanel({
         <div className="desEditor1">
           <div className="form-group">
             <label>URL atau Text</label>
-
             <input
               type="text"
               value={text}
@@ -34,7 +35,6 @@ export default function EditorPanel({
 
           <div className="form-group">
             <label>Background Card</label>
-
             <input
               type="file"
               accept="image/*"
@@ -44,7 +44,6 @@ export default function EditorPanel({
 
           <div className="form-group">
             <label>Logo QR (Opsional)</label>
-
             <input
               type="file"
               accept="image/*"
@@ -52,6 +51,7 @@ export default function EditorPanel({
             />
           </div>
         </div>
+
         <div className="desEditor1">
           <div className="form-group">
             <label>Orientasi Kartu</label>
@@ -76,6 +76,28 @@ export default function EditorPanel({
           </div>
 
           <div className="form-group">
+            <label>Mode QR Code</label>
+
+            <div className="orientation">
+              <button
+                type="button"
+                className={!qrOnly ? "active" : ""}
+                onClick={() => setQrOnly(false)}
+              >
+                Card
+              </button>
+
+              <button
+                type="button"
+                className={qrOnly ? "active" : ""}
+                onClick={() => setQrOnly(true)}
+              >
+                QR Only
+              </button>
+            </div>
+          </div>
+
+          <div className="form-group">
             <label>Ukuran QR Code: {qrSize}px</label>
 
             <input
@@ -91,7 +113,8 @@ export default function EditorPanel({
       </div>
 
       <div className="boxBottom"></div>
-      <Image className="imgEditor1" src={fedora} alt="fedora" />
+
+      <Image className="imgEditor1" src={fedora} alt="fedora" loading="eager" />
     </section>
   );
 }

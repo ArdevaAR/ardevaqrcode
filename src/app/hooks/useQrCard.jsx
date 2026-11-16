@@ -24,6 +24,7 @@ export function useQrCard() {
 
   const [status, setStatus] = useState("");
   // const [ready, setReady] = useState(false);
+  const [qrOnly, setQrOnly] = useState(false);
 
   const dimensions =
     orientation === "portrait"
@@ -39,6 +40,7 @@ export function useQrCard() {
   }
 
   // Render preview menggunakan aset yang tersimpan
+
   function renderCard() {
     const canvas = canvasRef.current;
     const assets = assetsRef.current;
@@ -47,38 +49,45 @@ export function useQrCard() {
 
     const { base, qrLayer, width, height } = assets;
 
-    if (canvas.width !== width || canvas.height !== height) {
-      canvas.width = width;
-      canvas.height = height;
-    }
-
     const ctx = canvas.getContext("2d");
 
-    const pos = limitPosition(
-      positionRef.current.x,
-      positionRef.current.y,
-      qrSize,
-    );
+    if (qrOnly) {
+      // Mode QR Only
+      canvas.width = qrSize;
+      canvas.height = qrSize;
 
-    positionRef.current = pos;
+      ctx.clearRect(0, 0, qrSize, qrSize);
+      ctx.drawImage(qrLayer, 0, 0, qrSize, qrSize);
+    } else {
+      // Mode Card
+      canvas.width = width;
+      canvas.height = height;
 
-    // Background
-    ctx.drawImage(base, 0, 0);
+      const pos = limitPosition(
+        positionRef.current.x,
+        positionRef.current.y,
+        qrSize,
+      );
 
-    // Border minimalis
-    const padding = 2;
+      positionRef.current = pos;
 
-    ctx.fillStyle = "#ffffff";
+      // Background
+      ctx.drawImage(base, 0, 0);
 
-    ctx.fillRect(
-      pos.x - padding,
-      pos.y - padding,
-      qrSize + padding * 2,
-      qrSize + padding * 2,
-    );
+      // Border putih QR
+      const padding = 2;
 
-    // QR dan logo
-    ctx.drawImage(qrLayer, pos.x, pos.y, qrSize, qrSize);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(
+        pos.x - padding,
+        pos.y - padding,
+        qrSize + padding * 2,
+        qrSize + padding * 2,
+      );
+
+      // QR Code
+      ctx.drawImage(qrLayer, pos.x, pos.y, qrSize, qrSize);
+    }
   }
 
   // Referensi fungsi render terbaru
@@ -174,7 +183,7 @@ export function useQrCard() {
 
         await QRCode.toCanvas(qrLayer, text, {
           width: qrSize,
-          margin: 4,
+          margin: 2,
           errorCorrectionLevel: "H",
           color: {
             dark: "#000000",
@@ -190,7 +199,7 @@ export function useQrCard() {
 
           if (cancelled) return;
 
-          const logoSize = Math.max(35, qrSize * 0.19);
+          const logoSize = Math.max(35, qrSize * 0.22);
 
           const centerX = qrSize / 2;
           const centerY = qrSize / 2;
@@ -201,7 +210,7 @@ export function useQrCard() {
           const logoCtx = qrLayer.getContext("2d");
 
           // Background logo
-          logoCtx.fillStyle = "#ffffff";
+          logoCtx.fillStyle = "#fff";
           logoCtx.beginPath();
 
           logoCtx.roundRect(
@@ -275,7 +284,7 @@ export function useQrCard() {
     return () => {
       cancelled = true;
     };
-  }, [text, background, logo, orientation, qrSize]);
+  }, [text, background, logo, orientation, qrSize, qrOnly]);
 
   // Konversi koordinat pointer
   function getCanvasPosition(e) {
@@ -343,43 +352,35 @@ export function useQrCard() {
   function downloadImage() {
     const canvas = canvasRef.current;
 
-    // if (!ready || !canvas || !assetsRef.current) {
-    //   alert("QR Code belum siap!");
-    //   return;
-    // }
+    if (!canvas) return;
 
     const link = document.createElement("a");
 
-    link.download = "Nexertc-QR-Card.png";
+    link.download = qrOnly ? "Nexertc-QR-Code.png" : "Nexertc-QR-Card.png";
+
     link.href = canvas.toDataURL("image/png");
 
     link.click();
   }
-
   return {
     canvasRef,
-
     text,
     setText,
-
     background,
     setBackground,
-
     logo,
     setLogo,
-
     orientation,
     setOrientation,
-
     qrSize,
     setQrSize,
 
-    // ready,
+    qrOnly,
+    setQrOnly,
 
     handlePointerDown,
     handlePointerMove,
     handlePointerUp,
-
     downloadImage,
   };
 }

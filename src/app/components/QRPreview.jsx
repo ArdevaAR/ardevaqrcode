@@ -1,8 +1,7 @@
 export default function QRPreview({
   canvasRef,
-
   orientation,
-  // ready,
+  qrOnly,
   onPointerDown,
   onPointerMove,
   onPointerUp,
@@ -10,23 +9,23 @@ export default function QRPreview({
   onDownload,
 }) {
   return (
-    <section className="preview">
+    <section className={`preview ${qrOnly ? "qr-only" : ""}`}>
       <div className="canvas-wrapper">
         <canvas
           ref={canvasRef}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
+          onPointerDown={qrOnly ? undefined : onPointerDown}
+          onPointerMove={qrOnly ? undefined : onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerCancel}
           style={{
-            cursor: "grab",
+            cursor: qrOnly ? "default" : "grab",
             touchAction: "none",
           }}
         />
       </div>
 
       <button className="download-btn" onClick={onDownload}>
-        Download PNG
+        Download {qrOnly ? "QR Code" : "PNG"}
       </button>
     </section>
   );
