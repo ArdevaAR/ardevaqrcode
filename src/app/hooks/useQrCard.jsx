@@ -79,7 +79,6 @@ export function useQrCard() {
         ctx.save();
 
         ctx.beginPath();
-        ctx.setLineDash([8, 6]);
         ctx.strokeStyle = "#4e95ff";
         ctx.lineWidth = 2;
 
@@ -152,7 +151,7 @@ export function useQrCard() {
 
         const ctx = base.getContext("2d");
 
-        ctx.fillStyle = "#e8b17f";
+        ctx.fillStyle = "#cfcfcf";
         ctx.fillRect(0, 0, width, height);
 
         // Background image

@@ -60,7 +60,10 @@ export default function EditorPanel({
             <div className="orientation">
               <button
                 type="button"
-                className={orientation === "portrait" ? "active" : ""}
+                disabled={qrOnly}
+                className={`${orientation === "portrait" ? "active" : ""} ${
+                  qrOnly ? "disabled" : ""
+                }`}
                 onClick={() => setOrientation("portrait")}
               >
                 Portrait
@@ -68,7 +71,10 @@ export default function EditorPanel({
 
               <button
                 type="button"
-                className={orientation === "landscape" ? "active" : ""}
+                disabled={qrOnly}
+                className={`${orientation === "landscape" ? "active" : ""} ${
+                  qrOnly ? "disabled" : ""
+                }`}
                 onClick={() => setOrientation("landscape")}
               >
                 Landscape
@@ -120,6 +126,7 @@ export default function EditorPanel({
       <div className="boxBottom"></div>
 
       <Image className="imgEditor1" src={fedora} alt="fedora" loading="eager" />
+      <Image className="imgEditor2" src={fedora} alt="fedora" loading="eager" />
     </section>
   );
 }
