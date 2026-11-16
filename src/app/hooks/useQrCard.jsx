@@ -23,7 +23,7 @@ export function useQrCard() {
   const [qrSize, setQrSize] = useState(280);
 
   const [status, setStatus] = useState("");
-  const [ready, setReady] = useState(false);
+  // const [ready, setReady] = useState(false);
 
   const dimensions =
     orientation === "portrait"
@@ -109,7 +109,7 @@ export function useQrCard() {
     let cancelled = false;
 
     async function generateCard() {
-      setReady(false);
+      // setReady(false);
 
       if (!text.trim()) {
         setStatus("Masukkan URL atau teks.");
@@ -262,7 +262,7 @@ export function useQrCard() {
         renderRef.current?.();
 
         setStatus("QR Card berhasil dibuat!");
-        setReady(true);
+        // setReady(true);
       } catch (error) {
         if (!cancelled) {
           setStatus(error.message || "Gagal membuat QR");
@@ -291,7 +291,7 @@ export function useQrCard() {
 
   // Mulai drag
   function handlePointerDown(e) {
-    if (!ready || !assetsRef.current) return;
+    // if (!ready || !assetsRef.current) return;
 
     const point = getCanvasPosition(e);
     const pos = positionRef.current;
@@ -343,10 +343,10 @@ export function useQrCard() {
   function downloadImage() {
     const canvas = canvasRef.current;
 
-    if (!ready || !canvas || !assetsRef.current) {
-      alert("QR Code belum siap!");
-      return;
-    }
+    // if (!ready || !canvas || !assetsRef.current) {
+    //   alert("QR Code belum siap!");
+    //   return;
+    // }
 
     const link = document.createElement("a");
 
@@ -374,7 +374,7 @@ export function useQrCard() {
     qrSize,
     setQrSize,
 
-    ready,
+    // ready,
 
     handlePointerDown,
     handlePointerMove,

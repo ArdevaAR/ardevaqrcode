@@ -2,7 +2,7 @@ export default function QRPreview({
   canvasRef,
 
   orientation,
-  ready,
+  // ready,
   onPointerDown,
   onPointerMove,
   onPointerUp,
@@ -25,7 +25,7 @@ export default function QRPreview({
         />
       </div>
 
-      <button className="download-btn" onClick={onDownload} disabled={!ready}>
+      <button className="download-btn" onClick={onDownload}>
         Download PNG
       </button>
     </section>

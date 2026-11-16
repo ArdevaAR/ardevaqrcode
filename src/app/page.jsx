@@ -31,7 +31,7 @@ export default function Home() {
         <QRPreview
           canvasRef={qr.canvasRef}
           orientation={qr.orientation}
-          ready={qr.ready}
+          // ready={qr.ready}
           onPointerDown={qr.handlePointerDown}
           onPointerMove={qr.handlePointerMove}
           onPointerUp={qr.handlePointerUp}
