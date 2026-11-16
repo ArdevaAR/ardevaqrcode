@@ -161,21 +161,6 @@ export function useQrCard() {
 
         if (cancelled) return;
 
-        // Text
-        ctx.save();
-
-        ctx.textAlign = "center";
-        ctx.font = `bold ${Math.round(width * 0.075)}px Arial`;
-        ctx.fillStyle = "#ffffff";
-        ctx.shadowColor = "rgba(0,0,0,0.3)";
-        ctx.shadowBlur = 5;
-
-        ctx.fillText(
-          "SCAN ME",
-          width / 2,
-          orientation === "portrait" ? 280 : 150,
-        );
-
         ctx.restore();
 
         // QR Code

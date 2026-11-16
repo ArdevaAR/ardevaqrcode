@@ -1,12 +1,10 @@
 export default function QRPreview({
   canvasRef,
-  orientation,
   qrOnly,
   onPointerDown,
   onPointerMove,
   onPointerUp,
   onPointerCancel,
-  onDownload,
 }) {
   return (
     <section className={`preview ${qrOnly ? "qr-only" : ""}`}>
@@ -23,10 +21,6 @@ export default function QRPreview({
           }}
         />
       </div>
-
-      <button className="download-btn" onClick={onDownload}>
-        Download {qrOnly ? "QR Code" : "PNG"}
-      </button>
     </section>
   );
 }

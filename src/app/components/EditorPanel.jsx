@@ -14,6 +14,7 @@ export default function EditorPanel({
   setQrSize,
   qrOnly,
   setQrOnly,
+  onDownload,
 }) {
   return (
     <section className="editor">
@@ -109,6 +110,10 @@ export default function EditorPanel({
               onChange={(e) => setQrSize(Number(e.target.value))}
             />
           </div>
+
+          <button className="download-btn" onClick={onDownload}>
+            Download {qrOnly ? "QR Code" : "PNG"}
+          </button>
         </div>
       </div>
 

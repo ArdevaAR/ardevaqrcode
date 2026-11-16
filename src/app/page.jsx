@@ -23,6 +23,7 @@ export default function Home() {
           setQrSize={qr.setQrSize}
           qrOnly={qr.qrOnly}
           setQrOnly={qr.setQrOnly}
+          onDownload={qr.downloadImage}
         />
 
         <QRPreview
@@ -33,7 +34,6 @@ export default function Home() {
           onPointerMove={qr.handlePointerMove}
           onPointerUp={qr.handlePointerUp}
           onPointerCancel={qr.handlePointerUp}
-          onDownload={qr.downloadImage}
         />
       </div>
 
