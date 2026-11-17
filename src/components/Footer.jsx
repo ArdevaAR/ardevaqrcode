@@ -22,9 +22,7 @@ export default function Footer() {
       </div>
 
       <div className="footerBottom">
-        <p>
-          © {new Date().getFullYear()} Ardeva Alghifari. All rights reserved.
-        </p>
+        <p>© Ardeva Alghifari. All rights reserved.</p>
       </div>
     </footer>
   );
