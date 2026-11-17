@@ -1,10 +1,17 @@
 "use client";
 
+// Hooks react
 import { useState } from "react";
+import { useQrCard } from "./hooks/useQrCard";
+
+// Image
+import Image from "next/image";
+import ardeva1 from "./img/ardeva1.jpeg";
+
+// Components
+import Nav from "@/components/Nav";
 import EditorPanel from "./components/EditorPanel";
 import QRPreview from "./components/QRPreview";
-import { useQrCard } from "./hooks/useQrCard";
-import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 // icons
@@ -55,12 +62,12 @@ export default function Home() {
 
       <aside className={`side1 ${isSideOpen ? "side2" : ""}`}>
         <div className="side1Container">
-          {/* <Image
+          <Image
             className="imgSide"
             src={ardeva1}
             alt="Ardeva"
             loading="eager"
-          /> */}
+          />
           <div className="side1Container2">
             <h2>
               Ardeva <span>Alghifari</span>.
