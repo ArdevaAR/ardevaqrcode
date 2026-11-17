@@ -8,7 +8,9 @@ export default function Footer() {
           <a className="footerLogo" href="#home">
             Ardeva <span>Alghifari</span>.
           </a>
-          <p>Temukan karya dan produk digital dari Ardeva Alghifari.</p>
+          <p>
+            Temukan karya dan produk digital dari Ardeva Alghifari, terimakasih
+          </p>
         </div>
         <nav className="footerLinks" aria-label="Navigasi footer">
           <a href="#home">GitHub</a>
