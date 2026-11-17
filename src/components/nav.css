@@ -1,0 +1,190 @@
+.navigasi {
+  background: var(--color1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 4rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.1rem solid var(--color4);
+}
+
+.navigasi h1 {
+  color: var(--still1);
+  font-style: italic;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 1rem;
+  font-weight: 700;
+}
+
+.navigasi h1 span {
+  color: var(--still2);
+}
+
+.menu {
+  position: absolute;
+  right: 1rem;
+  height: 80%;
+  width: auto;
+  color: var(--color4);
+  cursor: pointer;
+}
+
+.side1 {
+  position: fixed;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: #2a2727;
+  transition: 0.4s;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding-top: 1rem;
+}
+
+.side1 .side1Container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  width: 90%;
+}
+
+.side1 .imgSide {
+  width: 30%;
+  height: auto;
+}
+
+.side1 .side1Container h2 {
+  font-size: 1rem;
+  color: var(--color1);
+}
+
+.side1 .side1Container h2 span {
+  color: var(--still1);
+}
+
+.side1 .side1Container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+}
+
+.side1 .side1Container2 .button1 {
+  background: var(--color1);
+  border: none;
+  color: var(--still1);
+  border-radius: 0.3rem;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+}
+
+.side1 .side1Container2 .button2 {
+  position: absolute;
+  right: 0;
+  padding: 0.3rem 0.6rem;
+  bottom: 0;
+}
+
+.side1 .side1Container2 .button2 .button2Icon {
+  width: 100%;
+}
+
+.side1 a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color1);
+  margin: 1.5rem 0 0 0;
+  font-size: 1.1rem;
+  width: 90%;
+  padding: 0.5rem;
+  color: var(--still1);
+}
+
+.side1 a:hover {
+  transition: 0.4s;
+  background: var(--color1);
+  border-radius: 0.4rem;
+}
+
+.side2 {
+  left: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+.deslink {
+  display: none;
+}
+
+.DarkMode {
+  display: none;
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .menu {
+    display: none;
+  }
+  .deslink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .deslink a {
+    text-decoration: none;
+    color: var(--still1);
+    font-weight: 700;
+    font-size: 0.8rem;
+  }
+  .deslink a:hover {
+    text-decoration: underline;
+    transition: 0.4s;
+    color: var(--still2);
+  }
+  .navigasi h1 {
+    font-size: 1.1rem;
+  }
+  .DarkMode {
+    display: block;
+    color: var(--color4);
+    font-size: 2rem;
+    position: absolute;
+    right: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigasi h1 {
+    /* font-size: 1.5rem; */
+    margin-left: 0.5rem;
+  }
+  .navigasi .deslink {
+    gap: 1.5rem;
+  }
+  /* .navigasi .deslink a {
+    font-size: 1.2rem;
+  } */
+  .navigasi .DarkMode {
+    /* font-size: 3rem; */
+    margin-right: 0.5rem;
+  }
+}

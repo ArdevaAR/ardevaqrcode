@@ -3,12 +3,15 @@
 import EditorPanel from "./components/EditorPanel";
 import QRPreview from "./components/QRPreview";
 import { useQrCard } from "./hooks/useQrCard";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const qr = useQrCard();
 
   return (
     <main className="container">
+      <Nav />
       <div className="workspace">
         <EditorPanel
           text={qr.text}
@@ -37,7 +40,7 @@ export default function Home() {
         />
       </div>
 
-      <footer>© 2026 Nexertc QR Generator</footer>
+      <Footer />
     </main>
   );
 }
