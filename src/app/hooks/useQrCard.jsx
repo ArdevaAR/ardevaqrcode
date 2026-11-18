@@ -15,7 +15,7 @@ export function useQrCard() {
     y: 460,
   });
 
-  const [text, setText] = useState("https://nexertc.vercel.app");
+  const [text, setText] = useState("https://fedoraproject.org");
 
   const [background, setBackground] = useState(null);
   const [logo, setLogo] = useState(null);
@@ -50,13 +50,16 @@ export function useQrCard() {
 
     const { base, qrLayer, width, height } = assets;
 
-    // Atur ukuran canvas sebelum mengambil context
-    canvas.width = qrOnly ? qrSize : width;
-    canvas.height = qrOnly ? qrSize : height;
+    // Ukuran canvas selalu mengikuti background
+    canvas.width = width;
+    canvas.height = height;
 
     const ctx = canvas.getContext("2d");
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, width, height);
+
+    // Background selalu ditampilkan
+    ctx.drawImage(base, 0, 0);
 
     if (qrOnly) {
       // Mode QR Only
@@ -71,10 +74,7 @@ export function useQrCard() {
 
       positionRef.current = pos;
 
-      // Background
-      ctx.drawImage(base, 0, 0);
-
-      // Garis panduan vertikal ketika QR tepat di tengah
+      // Garis panduan vertikal
       if (verticalGuideRef.current && dragging.current) {
         ctx.save();
 
@@ -104,6 +104,8 @@ export function useQrCard() {
       ctx.drawImage(qrLayer, pos.x, pos.y, qrSize, qrSize);
     }
   }
+
+  renderRef.current = renderCard;
 
   // Referensi fungsi render terbaru
   renderRef.current = renderCard;

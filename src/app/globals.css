@@ -16,7 +16,6 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
   background: var(--color4);
   color: var(--color5);
   padding: 0;
@@ -190,22 +189,31 @@ body {
 .download-btn {
   width: 100%;
   padding: 13px;
-  background: #4e95ff;
-  border: none;
+  background: none;
+  border: 0.1rem solid var(--color1);
   border-radius: 8px;
-  color: white;
+  color: var(--color1);
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .download-btn:hover {
-  background: #2563eb;
+  background: var(--color1);
+  color: var(--still1);
 }
 
 .download-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.download-btn .iconDownload {
+  font-size: 1.2rem;
 }
 
 .orientation button:disabled {
@@ -220,7 +228,7 @@ body {
   background: var(--still1);
   height: 3rem;
   width: 70%;
-  border-radius: 0.7rem 0 0 0.7rem;
+  border-radius: 0.7rem 0.4rem 0.4rem 0.7rem;
   margin-top: 2rem;
   position: absolute;
   right: 1rem;
@@ -285,10 +293,6 @@ footer {
 ========================= */
 
 @media (min-width: 768px) {
-  .desEditor {
-    flex-direction: row;
-  }
-
   .container {
     margin-top: 0;
   }
@@ -303,11 +307,11 @@ footer {
   }
 
   .editor {
-    padding: 2rem;
+    padding: 1rem;
     padding-bottom: 7rem;
   }
 
-  .canvas-wrapper canvas {
+  .canvas-wrapper {
     width: 100%;
   }
 }
@@ -317,6 +321,10 @@ footer {
 ========================= */
 
 @media (min-width: 1024px) {
+  .desEditor {
+    flex-direction: row;
+    gap: 1rem;
+  }
   .header {
     margin-bottom: 40px;
   }

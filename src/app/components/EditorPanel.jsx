@@ -1,5 +1,6 @@
 import Image from "next/image";
 import fedora from "../img/fedorai2.png";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 
 export default function EditorPanel({
   text,
@@ -25,7 +26,7 @@ export default function EditorPanel({
       <div className="desEditor">
         <div className="desEditor1">
           <div className="form-group">
-            <label>URL atau Text</label>
+            <label>Tuliskan url tujuan, contoh:</label>
             <input
               type="text"
               value={text}
@@ -38,7 +39,7 @@ export default function EditorPanel({
             <label>Background Card</label>
 
             <label className="inputFile" htmlFor="background">
-              Pilih Backround
+              Select Backround Image
             </label>
             <input
               type="file"
@@ -52,7 +53,7 @@ export default function EditorPanel({
             <label>Logo QR (Opsional)</label>
 
             <label className="inputFile" htmlFor="logo">
-              file klik
+              Select Logo Image
             </label>
 
             <input
@@ -129,7 +130,8 @@ export default function EditorPanel({
           </div>
 
           <button className="download-btn" onClick={onDownload}>
-            Download {qrOnly ? "QR Code" : "PNG"}
+            <FaCloudDownloadAlt className="iconDownload" /> Download{" "}
+            {qrOnly ? "QR Code" : "PNG"}
           </button>
         </div>
       </div>
