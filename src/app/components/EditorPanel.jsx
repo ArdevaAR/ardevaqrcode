@@ -45,9 +45,12 @@ export default function EditorPanel({
 
           <div className="form-group">
             <label>Logo QR (Opsional)</label>
+            <label htmlFor="file">file klik</label>
+
             <input
               type="file"
               accept="image/*"
+              id="file"
               onChange={(e) => setLogo(e.target.files?.[0] || null)}
             />
           </div>
