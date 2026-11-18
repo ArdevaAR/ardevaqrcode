@@ -122,7 +122,7 @@ body {
 }
 
 .form-group input[type="text"],
-.form-group input[type="file"] {
+.form-group .inputFile {
   display: block;
   width: 100%;
   padding: 12px;
@@ -132,6 +132,19 @@ body {
   border-radius: 8px;
   outline: none;
   font-size: 13px;
+}
+
+.form-group .inputFile {
+  cursor: pointer;
+}
+
+.form-group .inputFile:hover {
+  background: var(--color1);
+  color: var(--still1);
+}
+
+.form-group input[type="file"] {
+  display: none;
 }
 
 .form-group input:focus {

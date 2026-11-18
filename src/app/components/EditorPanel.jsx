@@ -36,21 +36,29 @@ export default function EditorPanel({
 
           <div className="form-group">
             <label>Background Card</label>
+
+            <label className="inputFile" htmlFor="background">
+              Pilih Backround
+            </label>
             <input
               type="file"
               accept="image/*"
+              id="background"
               onChange={(e) => setBackground(e.target.files?.[0] || null)}
             />
           </div>
 
           <div className="form-group">
             <label>Logo QR (Opsional)</label>
-            <label htmlFor="file">file klik</label>
+
+            <label className="inputFile" htmlFor="logo">
+              file klik
+            </label>
 
             <input
               type="file"
               accept="image/*"
-              id="file"
+              id="logo"
               onChange={(e) => setLogo(e.target.files?.[0] || null)}
             />
           </div>
