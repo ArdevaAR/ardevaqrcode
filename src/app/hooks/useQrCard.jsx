@@ -63,7 +63,11 @@ export function useQrCard() {
 
     if (qrOnly) {
       // Mode QR Only
-      ctx.drawImage(qrLayer, 0, 0, qrSize, qrSize);
+
+      const x = (width - qrSize) / 2;
+      const y = (height - qrSize) / 2;
+
+      ctx.drawImage(qrLayer, x, y, qrSize, qrSize);
     } else {
       // Mode Card
       const pos = limitPosition(
@@ -73,6 +77,8 @@ export function useQrCard() {
       );
 
       positionRef.current = pos;
+
+      // ... kode Mode Card tetap seperti sebelumnya
 
       // Garis panduan vertikal
       if (verticalGuideRef.current && dragging.current) {
@@ -153,7 +159,7 @@ export function useQrCard() {
 
         const ctx = base.getContext("2d");
 
-        ctx.fillStyle = "#cfcfcf";
+        ctx.fillStyle = "#fff";
         ctx.fillRect(0, 0, width, height);
 
         // Background image
@@ -375,11 +381,20 @@ export function useQrCard() {
 
     if (!canvas) return;
 
+    const qrLayer = assetsRef.current?.qrLayer;
+
+    if (qrOnly && !qrLayer) {
+      setStatus("QR belum siap diunduh.");
+      return;
+    }
+
+    const image = qrOnly ? qrLayer : canvas;
+
     const link = document.createElement("a");
 
     link.download = qrOnly ? "Nexertc-QR-Code.png" : "Nexertc-QR-Card.png";
 
-    link.href = canvas.toDataURL("image/png");
+    link.href = image.toDataURL("image/png");
 
     link.click();
   }
