@@ -1,3 +1,5 @@
+"useclient";
+
 import Image from "next/image";
 import fedora from "../img/fedorai2.png";
 import { FaCloudDownloadAlt } from "react-icons/fa";
@@ -17,6 +19,9 @@ export default function EditorPanel({
   setQrOnly,
   onDownload,
 }) {
+  const reload = () => {
+    window.location.reload();
+  };
   return (
     <section className="editor">
       <h2>
@@ -136,7 +141,9 @@ export default function EditorPanel({
         </div>
       </div>
 
-      <div className="boxBottom"></div>
+      <div className="boxBottom">
+        <button onClick={reload}>Reset Configuration</button>
+      </div>
 
       <Image className="imgEditor1" src={fedora} alt="fedora" loading="eager" />
       <Image className="imgEditor2" src={fedora} alt="fedora" loading="eager" />

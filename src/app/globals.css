@@ -267,6 +267,7 @@ body {
   width: 100%;
   height: auto;
   border-radius: 0.7rem;
+  border: 0.1rem solid var(--color1);
 
   /* Mencegah seleksi gambar */
   user-select: none;
@@ -275,7 +276,10 @@ body {
 
   /* Mencegah gesture browser saat drag */
   touch-action: none;
-  border: 0.1rem solid var(--color1);
+}
+
+.preview.qr-only .canvas-wrapper canvas {
+  border: none;
 }
 
 /* Footer */
@@ -293,7 +297,7 @@ footer {
 ========================= */
 
 @media (min-width: 768px) {
-  .container {
+  qrLayer .container {
     margin-top: 0;
   }
 
