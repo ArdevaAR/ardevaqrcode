@@ -3,6 +3,7 @@
 import Image from "next/image";
 import fedora from "../img/fedorai2.png";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import { IoReload } from "react-icons/io5";
 
 export default function EditorPanel({
   text,
@@ -142,7 +143,10 @@ export default function EditorPanel({
       </div>
 
       <div className="boxBottom">
-        <button onClick={reload}>Reset Configuration</button>
+        <button onClick={reload}>
+          <IoReload className="iconReload" />
+          Reset Configuration
+        </button>
       </div>
 
       <Image className="imgEditor1" src={fedora} alt="fedora" loading="eager" />

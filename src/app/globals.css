@@ -212,7 +212,12 @@ body {
   cursor: not-allowed;
 }
 
-.download-btn .iconDownload {
+.download-btn .iconDownload,
+.boxBottom button .iconReload {
+  font-size: 1.2rem;
+}
+
+.iconNav {
   font-size: 1.2rem;
 }
 
@@ -226,13 +231,36 @@ body {
 
 .boxBottom {
   background: var(--still1);
-  height: 3rem;
+
   width: 70%;
   border-radius: 0.7rem 0.4rem 0.4rem 0.7rem;
   margin-top: 2rem;
   position: absolute;
   right: 1rem;
   bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0.5rem;
+}
+.boxBottom button {
+  background: var(--color1);
+  border: none;
+  color: var(--still1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid var(--color1);
+  transition: 0.4s;
+}
+
+.boxBottom button:hover {
+  background: none;
+  color: var(--color1);
+  transition: 0.4s;
 }
 
 .editor .imgEditor1 {

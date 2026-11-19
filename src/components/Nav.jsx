@@ -1,7 +1,9 @@
 import "./nav.css";
 import { useState, useEffect } from "react";
-import { MdOutlineMenu } from "react-icons/md";
+import { MdOutlineMenu, MdContactSupport, MdEmail } from "react-icons/md";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import { FaHome, FaProjectDiagram, FaGithub } from "react-icons/fa";
+import { SiAboutdotme } from "react-icons/si";
 
 export default function Nav({ klikSide }) {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,12 +21,29 @@ export default function Nav({ klikSide }) {
       <MdOutlineMenu onClick={klikSide} className="menu" />
 
       <div className="deslink">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#project">Project</a>
-        <a href="#GitHub">GitHub</a>
-        <a href="#GitHub">Email</a>
+        <a href="#home">
+          <FaHome className="iconNav" /> Home
+        </a>
+        <a href="#about">
+          <SiAboutdotme className="iconNav" />
+          About
+        </a>
+
+        <a href="#contact">
+          <MdContactSupport className="iconNav" />
+          Contact
+        </a>
+        <a href="#project">
+          <FaProjectDiagram /> Project
+        </a>
+        <a href="#GitHub">
+          <FaGithub />
+          GitHub
+        </a>
+        <a href="#GitHub">
+          <MdEmail />
+          Email
+        </a>
       </div>
 
       <h1>
