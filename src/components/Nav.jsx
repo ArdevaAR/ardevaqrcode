@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { MdOutlineMenu, MdContactSupport, MdEmail } from "react-icons/md";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { FaHome, FaProjectDiagram, FaGithub } from "react-icons/fa";
-import { FcAbout } from "react-icons/fc";
 
 export default function Nav({ klikSide }) {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,10 +22,6 @@ export default function Nav({ klikSide }) {
       <div className="deslink">
         <a href="#home">
           <FaHome className="iconNav" /> Home
-        </a>
-        <a href="#about">
-          <FcAbout className="iconNav" />
-          About
         </a>
 
         <a href="#contact">

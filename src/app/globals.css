@@ -189,7 +189,7 @@ body {
 .download-btn {
   width: 100%;
   padding: 13px;
-  background: none;
+  background: var(--still1);
   border: 0.1rem solid var(--color1);
   border-radius: 8px;
   color: var(--color1);
@@ -232,7 +232,6 @@ body {
 .boxBottom {
   background: var(--still1);
 
-  width: 70%;
   border-radius: 0.7rem 0.4rem 0.4rem 0.7rem;
   margin-top: 2rem;
   position: absolute;
@@ -263,15 +262,29 @@ body {
   transition: 0.4s;
 }
 
-.editor .imgEditor1 {
-  width: 50px;
-  height: auto;
+.editor .imgEd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   position: absolute;
   left: 1rem;
   bottom: 1rem;
 }
 
-.imgEditor2 {
+.editor .imgEditor1 {
+  width: 50px;
+  height: auto;
+}
+
+.editor h3 {
+  color: var(--still1);
+}
+.editor h3 span {
+  color: var(--still2);
+}
+
+.editor .imgEditor2 {
   width: 50px;
   height: auto;
   position: absolute;
@@ -339,6 +352,11 @@ footer {
     padding-bottom: 7rem;
   }
 
+  .editor h2 {
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
   .form-group .inputFile,
   .form-group label {
     font-size: 0.8rem;
@@ -346,6 +364,9 @@ footer {
 
   .canvas-wrapper {
     width: 100%;
+  }
+  .editor .imgEd h3 {
+    font-size: 1rem;
   }
 }
 
@@ -364,6 +385,13 @@ footer {
 
   .workspace {
     flex-direction: row;
+    align-items: center;
+  }
+  .editor .imgEd h3 {
+    font-size: 1.2rem;
+  }
+  .editor .boxBottom {
+    width: 70%;
   }
 }
 

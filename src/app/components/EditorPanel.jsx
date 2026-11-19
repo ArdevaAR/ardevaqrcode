@@ -149,7 +149,18 @@ export default function EditorPanel({
         </button>
       </div>
 
-      <Image className="imgEditor1" src={fedora} alt="fedora" loading="eager" />
+      <div className="imgEd">
+        <Image
+          className="imgEditor1"
+          src={fedora}
+          alt="fedora"
+          loading="eager"
+        />
+        <h3>
+          Ardeva<span>QR</span>.
+        </h3>
+      </div>
+
       <Image className="imgEditor2" src={fedora} alt="fedora" loading="eager" />
     </section>
   );
