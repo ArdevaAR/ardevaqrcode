@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { MdOutlineMenu, MdContactSupport, MdEmail } from "react-icons/md";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { FaHome, FaProjectDiagram, FaGithub } from "react-icons/fa";
-import { SiAboutdotme } from "react-icons/si";
+import { FcAbout } from "react-icons/fc";
 
 export default function Nav({ klikSide }) {
   const [darkMode, setDarkMode] = useState(false);
@@ -25,7 +25,7 @@ export default function Nav({ klikSide }) {
           <FaHome className="iconNav" /> Home
         </a>
         <a href="#about">
-          <SiAboutdotme className="iconNav" />
+          <FcAbout className="iconNav" />
           About
         </a>
 
@@ -34,14 +34,14 @@ export default function Nav({ klikSide }) {
           Contact
         </a>
         <a href="#project">
-          <FaProjectDiagram /> Project
+          <FaProjectDiagram className="iconNav" /> Project
         </a>
         <a href="#GitHub">
-          <FaGithub />
+          <FaGithub className="iconNav" />
           GitHub
         </a>
         <a href="#GitHub">
-          <MdEmail />
+          <MdEmail className="iconNav" />
           Email
         </a>
       </div>

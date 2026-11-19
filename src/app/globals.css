@@ -59,7 +59,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 25px;
-  margin-top: 6rem;
+  margin-top: 5.5rem;
   width: 100%;
 }
 
@@ -325,10 +325,6 @@ footer {
 ========================= */
 
 @media (min-width: 768px) {
-  qrLayer .container {
-    margin-top: 0;
-  }
-
   .header h1 {
     font-size: 34px;
   }
@@ -341,6 +337,11 @@ footer {
   .editor {
     padding: 1rem;
     padding-bottom: 7rem;
+  }
+
+  .form-group .inputFile,
+  .form-group label {
+    font-size: 0.8rem;
   }
 
   .canvas-wrapper {
