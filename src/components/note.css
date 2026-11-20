@@ -1,0 +1,35 @@
+.usageNote {
+  width: min(95%, 900px);
+  margin: 2rem auto 0;
+  color: var(--color5);
+  background: var(--color4);
+  border: 1px solid var(--color1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.usageNote summary {
+  padding: 1rem 1.25rem;
+  color: var(--color4);
+  background: var(--color1);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.usageNote summary:focus-visible {
+  outline: 3px solid var(--color5);
+  outline-offset: -5px;
+}
+
+.usageNoteContent {
+  padding: 1rem 1.25rem;
+  line-height: 1.7;
+}
+
+.usageNoteContent ol {
+  padding-left: 1.25rem;
+}
+
+.usageNoteContent li + li {
+  margin-top: 0.6rem;
+}

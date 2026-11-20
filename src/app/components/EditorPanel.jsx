@@ -8,9 +8,7 @@ import { IoReload } from "react-icons/io5";
 export default function EditorPanel({
   text,
   setText,
-  background,
   setBackground,
-  logo,
   setLogo,
   orientation,
   setOrientation,

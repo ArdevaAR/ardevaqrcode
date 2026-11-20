@@ -1,6 +1,11 @@
 import "./nav.css";
 import { useState, useEffect } from "react";
-import { MdOutlineMenu, MdContactSupport, MdEmail } from "react-icons/md";
+import {
+  MdOutlineMenu,
+  MdContactSupport,
+  MdEmail,
+  MdWeb,
+} from "react-icons/md";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { FaHome, FaProjectDiagram, FaGithub } from "react-icons/fa";
 
@@ -24,6 +29,10 @@ export default function Nav({ klikSide }) {
           <FaHome className="iconNav" /> Home
         </a>
 
+        <a href="https://ardevaalghifari.vercel.app">
+          <MdWeb className="iconNav" /> MyWeb
+        </a>
+
         <a href="#contact">
           <MdContactSupport className="iconNav" />
           Contact
@@ -31,11 +40,11 @@ export default function Nav({ klikSide }) {
         <a href="#project">
           <FaProjectDiagram className="iconNav" /> Project
         </a>
-        <a href="#GitHub">
+        <a href="https://github.com/ardevaar">
           <FaGithub className="iconNav" />
           GitHub
         </a>
-        <a href="#GitHub">
+        <a href="">
           <MdEmail className="iconNav" />
           Email
         </a>
