@@ -1,19 +1,52 @@
+.artcNote {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 95%;
+  margin-top: 5rem;
+}
+
+.artcNote section {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  gap: 0.7rem;
+}
+
 .usageNote {
-  width: min(95%, 900px);
-  margin: 2rem auto 0;
+  width: 100%;
   color: var(--color5);
   background: var(--color4);
-  border: 1px solid var(--color1);
-  border-radius: 0.75rem;
-  overflow: hidden;
+  border-radius: 0.4rem;
 }
 
 .usageNote summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem 1.25rem;
-  color: var(--color4);
-  background: var(--color1);
+  color: var(--color1);
+  background: none;
   font-weight: 700;
   cursor: pointer;
+  border-radius: 0.4rem;
+  list-style: none;
+}
+
+.usageNote summary::-webkit-details-marker {
+  display: none;
+}
+
+.usageNote summary::after {
+  content: "⌵";
+  font-size: 1.5rem;
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.usageNote[open] summary::after {
+  transform: rotate(180deg);
 }
 
 .usageNote summary:focus-visible {
@@ -32,4 +65,10 @@
 
 .usageNoteContent li + li {
   margin-top: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .artcNote section {
+    width: 45%;
+  }
 }
