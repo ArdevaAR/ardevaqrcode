@@ -2,7 +2,7 @@
 
 import "./note.css";
 import Image from "next/image";
-import bg from "../app/img/coc7.jpeg";
+import bg from "../app/img/ardevabg.png";
 
 export default function Note() {
   return (
