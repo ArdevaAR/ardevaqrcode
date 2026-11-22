@@ -1,9 +1,13 @@
+"use client";
+
 import "./note.css";
+import Image from "next/image";
+import bg from "../app/img/coc7.jpeg";
 
 export default function Note() {
   return (
     <article className="artcNote">
-      <section>
+      <section className="section1">
         {/* Cara Penggunaan */}
         <details className="usageNote">
           <summary>Cara menggunakan QR Code Generator</summary>
@@ -213,6 +217,13 @@ export default function Note() {
           </div>
         </details>
       </section>
+      <form action="">
+        <Image className="artcNoteBg" src={bg} alt="background" />
+        <h3>Masukan Saran Anda:</h3>
+        <input type="text" placeholder="Masukan Nama anda" />
+        <input type="text" placeholder="masukan saran anda" />
+        <button>Kirim Pesan</button>
+      </form>
     </article>
   );
 }
