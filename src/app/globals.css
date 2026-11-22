@@ -315,8 +315,8 @@ body {
   -webkit-user-select: none;
   -webkit-user-drag: none;
 
-  /* Mencegah gesture browser saat drag */
-  touch-action: none;
+  /* Izinkan scroll vertikal halaman saat preview disentuh */
+  touch-action: pan-y;
 }
 
 .preview.qr-only .canvas-wrapper canvas {

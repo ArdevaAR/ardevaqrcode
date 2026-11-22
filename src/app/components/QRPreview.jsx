@@ -17,7 +17,6 @@ export default function QRPreview({
           onPointerCancel={onPointerCancel}
           style={{
             cursor: qrOnly ? "default" : "grab",
-            touchAction: "none",
           }}
         />
       </div>
